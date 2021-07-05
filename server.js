@@ -13,7 +13,9 @@ const db = knex({
   client: 'pg',
   connection: {
     connectionString: process.env.DATABASE_URL,
-    ssl: true,
+    ssl: {
+      rejectUnauthorized: false,
+    },
     /*
      //local host connection setting
      host : '127.0.0.1',
@@ -21,7 +23,7 @@ const db = knex({
     password : '',
     database : 'smartbrain'
     */
-  }
+  },
 });
 
 // db.select('*').from('users').then(data => {
